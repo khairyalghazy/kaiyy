@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Penilaian Ujian Sekolah</title>
+</head>
+<body>
+
+<script>
+    let teori = parseFloat(prompt("Masukkan nilai ujian teori (0-100):"));
+    let praktik = parseFloat(prompt("Masukkan nilai ujian praktik (0-100):"));
+
+    let nilaiAkhir = teori * 0.6 + praktik * 0.4;
+
+    let status = "";
+
+    if (teori < 60) {
+        status = "TIDAK LULUS (Nilai teori tidak memenuhi syarat)";
+    } else if (praktik < 60) {
+        status = "TIDAK LULUS (Nilai praktik tidak memenuhi syarat)";
+    } else if (nilaiAkhir >= 85) {
+        status = "LULUS DENGAN PUJIAN";
+    } else if (nilaiAkhir >= 75) {
+        status = "LULUS";
+    } else {
+        status = "TIDAK LULUS";
+    }
+
+    console.log(`Nilai akhir: ${nilaiAkhir}. Status: ${status}`);
+</script>
+
+</body>
+</html>

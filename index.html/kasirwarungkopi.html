@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kasir Warung Kopi</title>
+</head>
+<body>
+
+<script>
+    const harga = 5000;
+    let jumlah = parseInt(prompt("Masukkan jumlah gelas kopi:"));
+
+    let total = jumlah * harga;
+
+    if (jumlah >= 5) {
+        total = total - (total * 0.10);
+        console.log(`Total bayar: Rp ${total}. Dapat diskon 10%!`);
+    } else {
+        console.log(`Total bayar: Rp ${total}. Tidak dapat diskon.`);
+    }
+</script>
+
+</body>
+</html>

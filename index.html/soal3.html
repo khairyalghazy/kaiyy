@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator Parkir Mall</title>
+</head>
+<body>
+<script>
+let kendaraan = prompt("Jenis kendaraan (motor/mobil):").toLowerCase();
+let durasi = parseFloat(prompt("Durasi parkir (jam, bisa desimal):"));
+let member = confirm("Member? (OK = ya, Cancel = tidak)");
+let kartuHilang = confirm("Kartu hilang? (OK = ya, Cancel = tidak)");
+
+let durasiBulat = Math.ceil(durasi);
+let tarifAwal, tarifPerJam, tarifMaks;
+
+if (kendaraan === "motor") { tarifAwal=2000; tarifPerJam=1000; tarifMaks=10000; }
+else if (kendaraan === "mobil") { tarifAwal=5000; tarifPerJam=2000; tarifMaks=25000; }
+else { console.log("Jenis kendaraan tidak valid!"); }
+
+if (kartuHilang) console.log("Denda kehilangan kartu: Rp 50000. (Diskon member tidak berlaku). Total: Rp 50000");
+else {
+    let tarif = durasiBulat <= 1 ? tarifAwal : tarifAwal + (durasiBulat-1)*tarifPerJam;
+    if (tarif > tarifMaks) tarif = tarifMaks;
+    let total = member ? Math.floor(tarif*0.85) : tarif;
+    let keterangan = member ? `Tarif: Rp ${tarif}. Diskon member 15%: Rp ${tarif - total}. Total: Rp ${total}`
+                             : `Total: Rp ${total}`;
+    console.log(keterangan);
+}
+</script>
+</body>
+</html>
